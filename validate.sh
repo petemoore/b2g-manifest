@@ -1,6 +1,5 @@
 #!/bin/bash -euxv
 
-which hg
 /usr/local/bin/hg --version
 
 echo "Installing mozharness..."
