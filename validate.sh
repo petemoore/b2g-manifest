@@ -1,6 +1,7 @@
 #!/bin/bash -euxv
 
 which hg
+/usr/local/bin/hg --version
 
 echo "Installing mozharness..."
 B2GBUMPER_DIR="$(pwd)"
