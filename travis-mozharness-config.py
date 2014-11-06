@@ -2,7 +2,7 @@
 config = {
     "exes": {
         # Get around the https warnings
-        "hg": ['/usr/local/bin/hg', "--config", "web.cacerts=/etc/ssl/certs/ca-certificates.crt"],
+        "hg": ['/usr/bin/hg', "--config", "web.cacerts=/etc/ssl/certs/ca-certificates.crt"],
         "hgtool.py": ["HGTOOL"],
         "gittool.py": ["GITTOOL"],
     },
