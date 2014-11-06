@@ -1,5 +1,7 @@
 #!/bin/bash -euxv
 
+which hg
+
 echo "Installing mozharness..."
 B2GBUMPER_DIR="$(pwd)"
 cd ..
