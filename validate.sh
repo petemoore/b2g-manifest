@@ -57,4 +57,4 @@ for config_file in mozharness/configs/b2g_bumper/*.py; do
     mozharness/scripts/b2g_bumper.py -c "${config_file}" -c "${B2GBUMPER_DIR}/travis-mozharness-config.py" --no-check-treestatus --no-commit-manifests --no-checkout-gecko --no-push
 done
 
-echo "All b2g bumper steps succeeded! All ok."
+echo "All b2g bumper steps succeeded!"
