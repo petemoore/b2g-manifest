@@ -10,8 +10,8 @@ config = {
     'gecko_push_url': 'ssh://hg.mozilla.org/users/pmoore_mozilla.com/b2g-manifest-test/',
     'gecko_local_dir': 'b2g-inbound',
 
-    'manifests_repo': 'MANIFESTS_REPO',
-    'manifests_revision': 'MANIFESTS_BRANCH',
+    'manifests_repo': 'B2G_MANIFEST_GIT_URL',
+    'manifests_revision': 'B2G_MANIFEST_COMMIT',
 
     'hgtool_base_bundle_urls': ['https://ftp-ssl.mozilla.org/pub/mozilla.org/firefox/bundles'],
 
