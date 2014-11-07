@@ -25,6 +25,6 @@ function replace {
 
 # update references to hgtool.py and gittool.py to correct locations...
 replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" HGTOOL "${HGTOOL_PATH}"
-replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" GITTOOL "${HGTOOL_PATH}"
+replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" GITTOOL "${GITTOOL_PATH}"
 
 mozharness/scripts/b2g_bumper.py -c "${B2GBUMPER_DIR}/travis-mozharness-config.py" --no-check-treestatus --no-commit-manifests
