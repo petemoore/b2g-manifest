@@ -1,4 +1,4 @@
-#!/bin/bash -euxv
+#!/bin/bash
 
 # This script is run by travis for the CI of b2g-manifest.
 # It is designed to catch problems that would otherwise only
@@ -30,15 +30,18 @@ function replace {
     rm "${file}.orig"
 }
 
-B2GBUMPER_DIR="$(pwd)"
-cd ..
-
+set -xv
 git remote -v
+git symbolic-ref --short HEAD
+set -eu
 echo ${TRAVIS_COMMIT}
 echo
 echo
 env
 exit 1
+
+B2GBUMPER_DIR="$(pwd)"
+cd ..
 
 echo "Installing mozharness..."
 echo "Current directory: '$(pwd)'"
