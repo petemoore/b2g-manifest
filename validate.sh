@@ -31,14 +31,8 @@ function replace {
 }
 
 set -xv
-git remote -v
-git symbolic-ref --short HEAD
-set -eu
-echo ${TRAVIS_COMMIT}
-echo
-echo
-env
-exit 1
+B2G_MANIFEST_GIT_URL="$(git config --get remote.origin.url)"
+B2G_MANIFEST_COMMIT="${TRAVIS_COMMIT}"
 
 B2GBUMPER_DIR="$(pwd)"
 cd ..
@@ -55,7 +49,8 @@ GITTOOL_PATH="$(find "$(pwd)/tools" -name gittool.py)"
 echo "Replacing references to hgtool.py and gittool.py to versions checked out in tools repo..."
 replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" HGTOOL "${HGTOOL_PATH}"
 replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" GITTOOL "${GITTOOL_PATH}"
-replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" B2G-MANIFEST_COMMIT "${TRAVIS_COMMIT}"
+replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" B2G_MANIFEST_GIT_URL "${B2G_MANIFEST_GIT_URL}"
+replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" B2G_MANIFEST_COMMIT "${B2G_MANIFEST_COMMIT}"
 
 echo "Running b2g bumper..."
 mozharness/scripts/b2g_bumper.py -c "${B2GBUMPER_DIR}/travis-mozharness-config.py" --no-check-treestatus --no-commit-manifests
