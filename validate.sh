@@ -33,6 +33,13 @@ function replace {
 find . -name '*.xml' | while read file; do
     replace "${file}" '^.*path="gaia".*' '<!-- filter out gaia for CI test -->'
 done
+echo "emulator-jb.xml"
+echo "==============="
+cat emulator-jb.xml
+echo "base-jb.xml"
+echo "==========="
+cat base-jb.xml
+exit 1
 B2GBUMPER_DIR="$(pwd)"
 cd ..
 echo "Installing mozharness..."
