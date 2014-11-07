@@ -1,5 +1,25 @@
 #!/bin/bash -euxv
 
+# This script is run by travis for the CI of b2g-manifest.
+# It is designed to catch problems that would otherwise only
+# be found when b2g bumper bot runs in production, that
+# potentially can cause tree closures.
+# It installs and runs b2g bumper locally, without committing
+# nor pushing back to hg, to check that repos referenced exist
+# and are readable, referenced heads/tags exist, and that they
+# are correctly mirrored on git.mozilla.org.
+# Gaia is excluded from testing, since access to cruncher is
+# required to map hg sha to git sha, whereas these tests are
+# more concerned with invalid repos/branches/tags getting
+# added to a manifest.
+
+# Please note the retry function is intentionally not disabled
+# just as the real b2g bumper in production uses a retry
+# function, so that bad changes to b2g-manifest that cause
+# breakage will take several minutes to fail after several
+# iterations of retries. This is to avoid that an intermittent
+# failure will cause travis CI to fail.
+
 function replace {
     local file="${1}"
     local tokenname="${2}"
@@ -11,7 +31,7 @@ function replace {
 }
 
 find . -name '*.xml' | while read file; do
-    replace "${file}" '^.*path="gaia".*' '<!-- filter out gaia for CI test & -->'
+    replace "${file}" '^.*path="gaia".*' '<!-- filter out gaia for CI test -->'
 done
 B2GBUMPER_DIR="$(pwd)"
 cd ..
