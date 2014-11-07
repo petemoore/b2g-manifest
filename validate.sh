@@ -4,10 +4,12 @@
 # It is designed to catch problems that would otherwise only
 # be found when b2g bumper bot runs in production, that
 # potentially can cause tree closures.
+
 # It installs and runs b2g bumper locally, without committing
 # nor pushing back to hg, to check that repos referenced exist
 # and are readable, referenced heads/tags exist, and that they
 # are correctly mirrored on git.mozilla.org.
+
 # Gaia is excluded from testing, since access to cruncher is
 # required to map hg sha to git sha, whereas these tests are
 # more concerned with invalid repos/branches/tags getting
