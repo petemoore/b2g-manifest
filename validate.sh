@@ -31,8 +31,11 @@ function replace {
 }
 
 B2GBUMPER_DIR="$(pwd)"
-MANIFESTS_BRANCH="$(git symbolic-ref --short HEAD)"
 cd ..
+
+env
+exit 1
+
 echo "Installing mozharness..."
 echo "Current directory: '$(pwd)'"
 git clone -b bug1091084 https://github.com/petemoore/build-mozharness mozharness
