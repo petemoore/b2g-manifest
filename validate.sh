@@ -56,7 +56,7 @@ replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" B2G_MANIFEST_COMMIT "${B2
 
 echo "Running b2g bumper..."
 for config_file in mozharness/configs/b2g_bumper/*.py; do
-    mozharness/scripts/b2g_bumper.py -c "${config_file}" -c "${B2GBUMPER_DIR}/travis-mozharness-config.py" --no-check-treestatus --no-commit-manifests --no-checkout-gecko
+    mozharness/scripts/b2g_bumper.py -c "${config_file}" -c "${B2GBUMPER_DIR}/travis-mozharness-config.py" --no-check-treestatus --no-commit-manifests --no-checkout-gecko --no-push
 done
 
 echo "All b2g bumper steps succeeded! All ok."
