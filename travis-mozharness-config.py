@@ -10,8 +10,8 @@ config = {
     'gecko_push_url': 'ssh://hg.mozilla.org/users/pmoore_mozilla.com/b2g-manifest-test/',
     'gecko_local_dir': 'b2g-inbound',
 
-    'manifests_repo': 'https://github.com/petemoore/b2g-manifest',
-    'manifests_revision': 'origin/master',
+    'manifests_repo': 'MANIFESTS_REPO',
+    'manifests_revision': 'MANIFESTS_BRANCH',
 
     'hg_user': 'Peter Moore <pmoore@mozilla.com>',
     "ssh_key": "~/.ssh/id_rsa",

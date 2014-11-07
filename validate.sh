@@ -45,6 +45,7 @@ echo
 echo
 
 B2GBUMPER_DIR="$(pwd)"
+MANIFESTS_BRANCH="$(git symbolic-ref --short HEAD)"
 cd ..
 echo "Installing mozharness..."
 echo "Current directory: '$(pwd)'"
@@ -58,6 +59,8 @@ GITTOOL_PATH="$(find "$(pwd)/tools" -name gittool.py)"
 echo "Replacing references to hgtool.py and gittool.py to versions checked out in tools repo..."
 replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" HGTOOL "${HGTOOL_PATH}"
 replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" GITTOOL "${GITTOOL_PATH}"
+replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" MANIFESTS_REPO "${B2GBUMPER_DIR}"
+replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" MANIFESTS_BRANCH "${MANIFESTS_BRANCH}"
 
 echo "Running b2g bumper..."
 mozharness/scripts/b2g_bumper.py -c "${B2GBUMPER_DIR}/travis-mozharness-config.py" --no-check-treestatus --no-commit-manifests
