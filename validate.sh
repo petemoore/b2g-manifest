@@ -39,7 +39,11 @@ cat emulator-jb.xml
 echo "base-jb.xml"
 echo "==========="
 cat base-jb.xml
-exit 1
+
+echo
+echo
+echo
+
 B2GBUMPER_DIR="$(pwd)"
 cd ..
 echo "Installing mozharness..."
