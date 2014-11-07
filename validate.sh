@@ -53,4 +53,4 @@ replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" B2G_MANIFEST_GIT_URL "${B
 replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" B2G_MANIFEST_COMMIT "${B2G_MANIFEST_COMMIT}"
 
 echo "Running b2g bumper..."
-mozharness/scripts/b2g_bumper.py -c "${B2GBUMPER_DIR}/travis-mozharness-config.py" --no-check-treestatus --no-commit-manifests
+mozharness/scripts/b2g_bumper.py -c "mozharness/configs/b2g_bumper/master.py" -c "${B2GBUMPER_DIR}/travis-mozharness-config.py" --no-check-treestatus --no-commit-manifests
