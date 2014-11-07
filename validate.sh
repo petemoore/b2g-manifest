@@ -45,11 +45,9 @@ git clone -b bug1091084 https://github.com/petemoore/build-mozharness mozharness
 echo "Installing tools..."
 git clone https://github.com/mozilla/build-tools tools
 
-HGTOOL_PATH="$(find "$(pwd)/tools" -name hgtool.py)"
 GITTOOL_PATH="$(find "$(pwd)/tools" -name gittool.py)"
 
 echo "Replacing references to hgtool.py and gittool.py to versions checked out in tools repo..."
-replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" HGTOOL "${HGTOOL_PATH}"
 replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" GITTOOL "${GITTOOL_PATH}"
 replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" B2G_MANIFEST_GIT_URL "${B2G_MANIFEST_GIT_URL}"
 replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" B2G_MANIFEST_COMMIT "${B2G_MANIFEST_COMMIT}"
