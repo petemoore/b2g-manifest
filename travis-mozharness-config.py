@@ -13,19 +13,9 @@ config = {
     'manifests_repo': 'MANIFESTS_REPO',
     'manifests_revision': 'MANIFESTS_BRANCH',
 
-    'hg_user': 'Peter Moore <pmoore@mozilla.com>',
-    "ssh_key": "~/.ssh/id_rsa",
-    "ssh_user": "pmoore@mozilla.com",
-
     'hgtool_base_bundle_urls': ['https://ftp-ssl.mozilla.org/pub/mozilla.org/firefox/bundles'],
 
-    'gaia_repo_url': 'https://hg.mozilla.org/integration/gaia-central',
-    'gaia_revision_file': 'b2g/config/gaia.json',
-    'gaia_max_revisions': 5,
-    # Which git branch this hg repo corresponds to
-    'gaia_git_branch': 'master',
-    'gaia_mapper_project': 'gaia',
-    'mapper_url': 'http://cruncher.build.mozilla.org/mapper/{project}/{vcs}/{rev}',
+    'skip_gaia_json': True,
 
     'devices': {
         'dolphin': {

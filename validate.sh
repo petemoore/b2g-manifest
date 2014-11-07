@@ -30,20 +30,6 @@ function replace {
     rm "${file}.orig"
 }
 
-find . -name '*.xml' | while read file; do
-    replace "${file}" '^.*path="gaia".*' '<!-- filter out gaia for CI test -->'
-done
-echo "emulator-jb.xml"
-echo "==============="
-cat emulator-jb.xml
-echo "base-jb.xml"
-echo "==========="
-cat base-jb.xml
-
-echo
-echo
-echo
-
 B2GBUMPER_DIR="$(pwd)"
 MANIFESTS_BRANCH="$(git symbolic-ref --short HEAD)"
 cd ..
@@ -59,8 +45,6 @@ GITTOOL_PATH="$(find "$(pwd)/tools" -name gittool.py)"
 echo "Replacing references to hgtool.py and gittool.py to versions checked out in tools repo..."
 replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" HGTOOL "${HGTOOL_PATH}"
 replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" GITTOOL "${GITTOOL_PATH}"
-replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" MANIFESTS_REPO "${B2GBUMPER_DIR}"
-replace "${B2GBUMPER_DIR}/travis-mozharness-config.py" MANIFESTS_BRANCH "${MANIFESTS_BRANCH}"
 
 echo "Running b2g bumper..."
 mozharness/scripts/b2g_bumper.py -c "${B2GBUMPER_DIR}/travis-mozharness-config.py" --no-check-treestatus --no-commit-manifests
