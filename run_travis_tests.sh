@@ -23,7 +23,7 @@ cd ..
 
 echo "Installing mozharness..."
 echo "Current directory: '$(pwd)'"
-git clone https://github.com/mozilla/build-mozharness mozharness
+git clone -b bug1093273 https://github.com/petemoore/build-mozharness mozharness
 echo "Installing tools..."
 git clone https://github.com/mozilla/build-tools tools
 
